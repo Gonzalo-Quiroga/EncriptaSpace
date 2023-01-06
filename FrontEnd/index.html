@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="esp">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="Imagenes/planeta.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200&family=Montserrat:wght@300&display=swap" rel="stylesheet"/>
+    <title>EncriptaSpace</title>
+    <meta name="title" content="EncriptaSpace">
+    <meta name="description" content="Aplicación que encripta textos con temática espacial, podrás intercambiar mensajes secretos con otras personas que  lo utilicen.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gonzalo-quiroga.github.io/EncriptaSpace/FrontEnd/index.html">
+    <meta property="og:title" content="EncriptaSpace">
+    <meta property="og:description" content="Aplicación que encripta textos con temática espacial, podrás intercambiar mensajes secretos con otras personas que  lo utilicen.">
+    <meta property="og:image" content="https://i.postimg.cc/658sjCvJ/Encripta-Space.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://gonzalo-quiroga.github.io/EncriptaSpace/FrontEnd/index.html">
+    <meta property="twitter:title" content="EncriptaSpace">
+    <meta property="twitter:description" content="Aplicación que encripta textos con temática espacial, podrás intercambiar mensajes secretos con otras personas que  lo utilicen.">
+    <meta property="twitter:image" content="https://i.postimg.cc/658sjCvJ/Encripta-Space.png">
+  </head>
+  <body>
+    <div class="container">
+      <button id="boton_info">¿Cómo funciona?</button>
+      <span class="hide" id="hide_text">
+        <p id="texto_info"><u>Bienvenido!</u><br><br>Ingresa la palabra o el texto que desees, Listo? Perfecto! Ahora presiona <u>"Encriptar"</u> para traducir al idioma que se habla en el espacio. Genial! Ya puedes enviar el mensaje a quien tú quieras y si no entienden el idioma del espacio puedes enviarle este encriptador para que introduzcan él mensaje y el den al botón de <u>"Desencriptar"</u> para que vuelva a su idioma original.<br><br><u class="largo">¡Dimesvimesenterrtentertenter!</u></p>
+      </span>
+    </div>
+    <header>
+      <div class="encabezado">
+        <h2 class="titulo-principal">Encripta<br>Space</h2>
+        <div id="particles-js"></div>
+        <div class="triangulo"></div>
+        <div class="triangulo2"></div>
+      </div>
+    </header>
+    <main>
+      <section class="left-panel">
+        <img id="imagen-planeta" src="Imagenes/planeta.png" alt="Imagen de planeta violeta"/>
+        <button type="button" class="boton-borrar"
+        onclick="borrar()">Borrar</button>
+        <input type="text" class="input-text" id="text-input" placeholder="Ingrese el texto aqui" autofocus></input>
+        <div class="left-button">
+          <p>*Solo letras minúscular y sin acentos</p>
+          <button type="button" class="boton-encriptar" onclick="encriptar()">Encriptar</button>
+          <button type="button" class="boton-desencriptar" onclick="desencriptar()">Desencriptar</button>
+        </div>
+      </section>
+      <section class="right-panel">
+        <img id="imagen-astronauta" src="Imagenes/astronauta.png" alt="Imagen de astronauta"/>
+        <h1 id="texto">Ningún mensaje fue encontrado</h1>
+        <textarea id="texto-dos" name="name" rows="8" cols="80">Ingrese el texto que desees encriptar o Desencriptar</textarea>
+        <button id="copiar" type="button" name="button" onclick="copy()">Copiar</button>
+      </section>
+    </main>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="particles.min.js"></script>
+    <script>
+      particlesJS(
+        {
+  "particles": {
+    "number": {
+      "value": 100,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 1,
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 1,
+        "opacity_min": 0,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 4,
+        "size_min": 0.3,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": false,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 1,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 600
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": false,
+        "mode": "bubble"
+      },
+      "onclick": {
+        "enable": false,
+        "mode": "repulse"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 250,
+        "size": 0,
+        "duration": 2,
+        "opacity": 0,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 400,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+}
+      )
+    </script>
+  </body>
+</html>
